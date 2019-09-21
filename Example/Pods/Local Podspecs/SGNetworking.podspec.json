@@ -1,0 +1,27 @@
+{
+  "name": "SGNetworking",
+  "version": "1.0.0.0",
+  "summary": "A short description of SGNetworking.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/SG/SGNetworking",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GuiLQing": "gui950823@126.com"
+  },
+  "source": {
+    "git": "https://github.com/GuiLQing/SGNetworking.git",
+    "tag": "1.0.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "SGNetworking/Classes/**/*",
+  "dependencies": {
+    "AFNetworking": [
+
+    ]
+  }
+}

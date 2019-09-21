@@ -24,6 +24,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		D2B28E6723321245008515D7 /* SGNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B28E6523321244008515D7 /* SGNetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2190141ED51700CE4979F985 /* SGNetworking.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SGNetworking.podspec; path = ../SGNetworking.podspec; sourceTree = "<group>"; };
+		2190141ED51700CE4979F985 /* SGNetworking.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SGNetworking.podspec; path = ../SGNetworking.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5357AB8555A0DA6E2CDA5D5E /* Pods_SGNetworking_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SGNetworking_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* SGNetworking_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGNetworking_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,9 +63,21 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F4A1FF733FB8FD4A1BF491C /* Pods-SGNetworking_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGNetworking_Tests.release.xcconfig"; path = "Target Support Files/Pods-SGNetworking_Tests/Pods-SGNetworking_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9D7064BDA5D62650E4F70F6F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		ACD7AF499A769F92C1821D50 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		9D7064BDA5D62650E4F70F6F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		ACD7AF499A769F92C1821D50 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C00B7EADD39B5AD548DC6CED /* Pods-SGNetworking_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGNetworking_Example.debug.xcconfig"; path = "Target Support Files/Pods-SGNetworking_Example/Pods-SGNetworking_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D21B03B92334EDAA00AD46CE /* SGMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGMacros.h; sourceTree = "<group>"; };
+		D21B03BB2334EDFE00AD46CE /* SGDispatchMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGDispatchMacros.h; sourceTree = "<group>"; };
+		D21B03BC2334EF1D00AD46CE /* SGColorMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGColorMacros.h; sourceTree = "<group>"; };
+		D21B03BD2334EF5100AD46CE /* SGPathMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGPathMacros.h; sourceTree = "<group>"; };
+		D21B03BE2334EFD800AD46CE /* SGBlockMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGBlockMacros.h; sourceTree = "<group>"; };
+		D21B03BF2334F02300AD46CE /* SGImageMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGImageMacros.h; sourceTree = "<group>"; };
+		D21B03C02334F2EC00AD46CE /* SGFontMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGFontMacros.h; sourceTree = "<group>"; };
+		D21B03C12334F34D00AD46CE /* SGOtherMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGOtherMacros.h; sourceTree = "<group>"; };
+		D21B03C22334F3B000AD46CE /* SGSizeMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSizeMacros.h; sourceTree = "<group>"; };
+		D21B03C32334F40300AD46CE /* SGSystemMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSystemMacros.h; sourceTree = "<group>"; };
+		D2B28E6523321244008515D7 /* SGNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGNetworkManager.m; sourceTree = "<group>"; };
+		D2B28E6623321244008515D7 /* SGNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGNetworkManager.h; sourceTree = "<group>"; };
 		D84E5243F27156AB4B597C15 /* Pods-SGNetworking_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGNetworking_Example.release.xcconfig"; path = "Target Support Files/Pods-SGNetworking_Example/Pods-SGNetworking_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EDE49EC91950868C8217E6F1 /* Pods-SGNetworking_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGNetworking_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SGNetworking_Tests/Pods-SGNetworking_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,8 +148,11 @@
 				6003F59C195388D20070C39A /* SGAppDelegate.h */,
 				6003F59D195388D20070C39A /* SGAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				D21B03BA2334EDC000AD46CE /* SGMacros */,
 				6003F5A5195388D20070C39A /* SGViewController.h */,
 				6003F5A6195388D20070C39A /* SGViewController.m */,
+				D2B28E6623321244008515D7 /* SGNetworkManager.h */,
+				D2B28E6523321244008515D7 /* SGNetworkManager.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -185,6 +201,23 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		D21B03BA2334EDC000AD46CE /* SGMacros */ = {
+			isa = PBXGroup;
+			children = (
+				D21B03B92334EDAA00AD46CE /* SGMacros.h */,
+				D21B03C32334F40300AD46CE /* SGSystemMacros.h */,
+				D21B03C22334F3B000AD46CE /* SGSizeMacros.h */,
+				D21B03BC2334EF1D00AD46CE /* SGColorMacros.h */,
+				D21B03C02334F2EC00AD46CE /* SGFontMacros.h */,
+				D21B03BD2334EF5100AD46CE /* SGPathMacros.h */,
+				D21B03BE2334EFD800AD46CE /* SGBlockMacros.h */,
+				D21B03BF2334F02300AD46CE /* SGImageMacros.h */,
+				D21B03BB2334EDFE00AD46CE /* SGDispatchMacros.h */,
+				D21B03C12334F34D00AD46CE /* SGOtherMacros.h */,
+			);
+			name = SGMacros;
+			sourceTree = "<group>";
+		};
 		FBD2EA5043C39D052D72EA8D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +226,6 @@
 				EDE49EC91950868C8217E6F1 /* Pods-SGNetworking_Tests.debug.xcconfig */,
 				7F4A1FF733FB8FD4A1BF491C /* Pods-SGNetworking_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +290,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -302,10 +335,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SGNetworking_Example/Pods-SGNetworking_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/SGNetworking/SGNetworking.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGNetworking.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B28E6723321245008515D7 /* SGNetworkManager.m in Sources */,
 				6003F59E195388D20070C39A /* SGAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SGViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
