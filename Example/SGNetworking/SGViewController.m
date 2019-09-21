@@ -47,27 +47,14 @@ typedef NS_ENUM(NSUInteger, WMClientRequestCachePolicy){
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    SG_Dispatch_main_completion_handler(^{
-        NSLog(@"完成了");
-    }, ^(sg_dispatch_semaphore_signal sg_semaphore_signal) {
-        NSLog(@"1");
-        sg_semaphore_signal();
-    }, ^(sg_dispatch_semaphore_signal sg_semaphore_signal) {
-        NSLog(@"2");
-        sg_semaphore_signal();
-    }, ^(sg_dispatch_semaphore_signal sg_semaphore_signal) {
-        NSLog(@"3");
-        sg_semaphore_signal();
-    }, ^(sg_dispatch_semaphore_signal sg_semaphore_signal) {
-        NSLog(@"4");
-        sg_semaphore_signal();
-    }, ^(sg_dispatch_semaphore_signal sg_semaphore_signal) {
-        NSLog(@"5");
-        sg_semaphore_signal();
-    },^(sg_dispatch_semaphore_signal sg_semaphore_signal) {
-        NSLog(@"6");
-        sg_semaphore_signal();
-    }, nil);
+    //获取状态栏的rect
+    CGRect statusRect = [[UIApplication sharedApplication] statusBarFrame];
+    //获取导航栏的rect
+    CGRect navRect = self.navigationController.navigationBar.frame;
+    //那么导航栏+状态栏的高度
+    CGFloat naviHeight = statusRect.size.height+navRect.size.height;
+    
+    NSLog(@"\n%@\n%@\n%lf", [NSValue valueWithCGRect:statusRect], [NSValue valueWithCGRect:navRect], naviHeight);
 }
 
 @end

@@ -13,14 +13,14 @@ typedef void(^sg_dispatch_semaphore_signal)(void);
 typedef void(^sg_dispatch_async_block)(sg_dispatch_semaphore_signal _Nullable sg_semaphore_signal);
 
 /**
- 并发事务操作，可变参数添加多个事务
+ 并行事务操作，可变参数添加多个事务
  
  @param sg_main_completion_handler 所有并发事务完成主线程回调，每个事务处理完事件后需要手动调用sg_semaphore_signal()，不然会一直处于dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)等待中
  @return return value description
  */
-static inline void SG_Dispatch_main_completion_handler(void (^ _Nullable sg_main_completion_handler)(void), sg_dispatch_async_block _Nullable block, ...) NS_REQUIRES_NIL_TERMINATION;
+static inline void SG_Parallel_Dispatch_main_completion_handler(void (^ _Nullable sg_main_completion_handler)(void), sg_dispatch_async_block _Nullable block, ...) NS_REQUIRES_NIL_TERMINATION;
 
-static inline void SG_Dispatch_main_completion_handler(void (^ _Nullable sg_main_completion_handler)(void), sg_dispatch_async_block _Nullable block, ...) {
+static inline void SG_Parallel_Dispatch_main_completion_handler(void (^ _Nullable sg_main_completion_handler)(void), sg_dispatch_async_block _Nullable block, ...) {
     
     NSMutableArray *block_array = [NSMutableArray array];
     
@@ -48,13 +48,12 @@ static inline void SG_Dispatch_main_completion_handler(void (^ _Nullable sg_main
         dispatch_group_async(group, queue, block_t);
     }
     
+    
     dispatch_group_notify(group, queue, ^{
         for (NSInteger i = 0; i < block_array.count; i ++) {
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (sg_main_completion_handler) sg_main_completion_handler();
-        });
+        if (sg_main_completion_handler) sg_main_completion_handler();
     });
 }
 
