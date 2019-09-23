@@ -13,6 +13,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.window = [UIWindow.alloc initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UITabBarController *tabbar = [[UITabBarController alloc] init];
+    [tabbar addChildViewController:[[UINavigationController alloc] initWithRootViewController:[[NSClassFromString(@"SGViewController") alloc] init]]];
+    
+    self.window.rootViewController = tabbar;
+    
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

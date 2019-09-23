@@ -46,15 +46,9 @@ typedef NS_ENUM(NSUInteger, WMClientRequestCachePolicy){
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    //获取状态栏的rect
-    CGRect statusRect = [[UIApplication sharedApplication] statusBarFrame];
-    //获取导航栏的rect
-    CGRect navRect = self.navigationController.navigationBar.frame;
-    //那么导航栏+状态栏的高度
-    CGFloat naviHeight = statusRect.size.height+navRect.size.height;
-    
-    NSLog(@"\n%@\n%@\n%lf", [NSValue valueWithCGRect:statusRect], [NSValue valueWithCGRect:navRect], naviHeight);
+    self.view.backgroundColor = UIColor.whiteColor;
+
+    NSLog(@"%@", SG_PathDocumentAppend(@"GUI"));
 }
 
 @end

@@ -9,6 +9,7 @@
 #ifndef SGOtherMacros_h
 #define SGOtherMacros_h
 
+/** 判断链接资源类型 */
 static inline void SG_GetVideoMIMITypeFromNSULRSession(NSURL * _Nonnull url, void (^ _Nullable callback)(NSString * _Nonnull MIMEType)) {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"HEAD"];

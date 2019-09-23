@@ -19,18 +19,16 @@
 #endif
 
 /** 判断iPhone X系列手机 */
-static inline BOOL SG_IS_IPHONE_X() {
-    BOOL iPhoneX = NO;
-    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
-        return iPhoneX;
-    }
+#define SG_IS_IPHONE_X SG_IsIphoneX()
+static inline BOOL SG_IsIphoneX(void) {
+    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) return NO;
     if (@available(iOS 11.0, *)) {
         UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
         if (mainWindow.safeAreaInsets.bottom > 0.0) {
-            iPhoneX = YES;
+            return YES;
         }
     }
-    return iPhoneX;
+    return NO;
 }
 
 #endif /* SGSystemMacros_h */

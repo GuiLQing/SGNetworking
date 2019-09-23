@@ -78,6 +78,7 @@
 		D21B03C32334F40300AD46CE /* SGSystemMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSystemMacros.h; sourceTree = "<group>"; };
 		D2B28E6523321244008515D7 /* SGNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGNetworkManager.m; sourceTree = "<group>"; };
 		D2B28E6623321244008515D7 /* SGNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGNetworkManager.h; sourceTree = "<group>"; };
+		D2DDF6062338C959008CBFE6 /* SGUtilsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGUtilsMacros.h; sourceTree = "<group>"; };
 		D84E5243F27156AB4B597C15 /* Pods-SGNetworking_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGNetworking_Example.release.xcconfig"; path = "Target Support Files/Pods-SGNetworking_Example/Pods-SGNetworking_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EDE49EC91950868C8217E6F1 /* Pods-SGNetworking_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGNetworking_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SGNetworking_Tests/Pods-SGNetworking_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +215,7 @@
 				D21B03BF2334F02300AD46CE /* SGImageMacros.h */,
 				D21B03BB2334EDFE00AD46CE /* SGDispatchMacros.h */,
 				D21B03C12334F34D00AD46CE /* SGOtherMacros.h */,
+				D2DDF6062338C959008CBFE6 /* SGUtilsMacros.h */,
 			);
 			name = SGMacros;
 			sourceTree = "<group>";
