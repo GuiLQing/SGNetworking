@@ -7,7 +7,6 @@
 //
 
 #import "SGViewController.h"
-#import "SGMacros.h"
 
 typedef NS_ENUM(NSUInteger, WMClientRequestCachePolicy){
     WMClientReturnCacheDataThenLoad = 0,///< 有缓存就先返回缓存，同步请求数据
@@ -47,8 +46,12 @@ typedef NS_ENUM(NSUInteger, WMClientRequestCachePolicy){
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = UIColor.whiteColor;
-
-    NSLog(@"%@", SG_PathDocumentAppend(@"GUI"));
+    
+//    if ([path hasSuffix:@"AddLoginSysInfo"]) {
+//        NSData *jsData = [NSJSONSerialization dataWithJSONObject:response options:NSJSONWritingSortedKeys error:nil];
+//        NSString *codeString = [[NSString alloc] initWithData:jsData encoding:NSUTF8StringEncoding];
+//        NSLog(@"%@", codeString);
+//    }
 }
 
 @end

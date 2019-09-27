@@ -7,9 +7,42 @@
 
 #import "SGNetworkManager.h"
 #import <AFNetworking/AFNetworking.h>
-#import "SGMacros.h"
 
-static inline NSString * SG_RequestLink(NSString *serverAddress, NSString *interface) {
+#ifndef SGNET_weakify
+#if __has_feature(objc_arc)
+#define SGNET_weakify( x ) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+@autoreleasepool{} __weak __typeof__(x) __weak_##x##__ = x; \
+_Pragma("clang diagnostic pop")
+#else
+
+#define SGNET_weakify( x ) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+@autoreleasepool{} __block __typeof__(x) __block_##x##__ = x; \
+_Pragma("clang diagnostic pop")
+#endif
+#endif
+
+#ifndef SGNET_strongify
+#if __has_feature(objc_arc)
+#define SGNET_strongify( x ) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+@try{} @finally{} __typeof__(x) x = __weak_##x##__; \
+_Pragma("clang diagnostic pop")
+#else
+
+#define SGNET_strongify( x ) \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wshadow\"") \
+@try{} @finally{} __typeof__(x) x = __block_##x##__; \
+_Pragma("clang diagnostic pop")
+#endif
+#endif
+
+static inline NSString * SGNET_RequestLink(NSString *serverAddress, NSString *interface) {
     if (!serverAddress || !interface) return @"";
     return [serverAddress stringByAppendingPathComponent:interface];
 }
@@ -25,6 +58,8 @@ static NSTimeInterval const SG_DEFAULT_TIMEOUT_INTERVAL = 30.0;
 @property (nonatomic, strong) void (^failure)(NSError *error);
 
 @property (nonatomic, strong) void (^downloadProgress)(NSProgress *progress);
+
+@property (nonatomic, strong) void (^uploadProgress)(NSProgress *progress);
 
 @property (nonatomic, strong) NSString *serverAddress;
 
@@ -67,9 +102,9 @@ static NSTimeInterval const SG_DEFAULT_TIMEOUT_INTERVAL = 30.0;
 }
 
 - (SGNetworkManager * (^)(void (^)(id response)))sg_success {
-    SG_weakify(self)
+    SGNET_weakify(self)
     return ^(void (^sg_success)(id response)) {
-        SG_strongify(self)
+        SGNET_strongify(self)
         self.success = ^(id response) {
             if (sg_success) sg_success(response);
         };
@@ -78,9 +113,9 @@ static NSTimeInterval const SG_DEFAULT_TIMEOUT_INTERVAL = 30.0;
 }
 
 - (SGNetworkManager * (^)(void (^)(NSError *error)))sg_failure {
-    SG_weakify(self)
+    SGNET_weakify(self)
     return ^(void (^sg_failure)(NSError *error)) {
-        SG_strongify(self)
+        SGNET_strongify(self)
         self.failure = ^(NSError *error) {
             if (sg_failure) sg_failure(error);
         };
@@ -89,9 +124,9 @@ static NSTimeInterval const SG_DEFAULT_TIMEOUT_INTERVAL = 30.0;
 }
 
 - (SGNetworkManager * (^)(void (^)(NSProgress *progress)))sg_downloadProgress {
-    SG_weakify(self)
+    SGNET_weakify(self)
     return ^(void (^sg_downloadProgress)(NSProgress *progress)) {
-        SG_strongify(self)
+        SGNET_strongify(self)
         self.downloadProgress = ^(NSProgress *progress) {
             if (sg_downloadProgress) sg_downloadProgress(progress);
         };
@@ -99,43 +134,69 @@ static NSTimeInterval const SG_DEFAULT_TIMEOUT_INTERVAL = 30.0;
     };
 }
 
+- (SGNetworkManager * (^)(void (^)(NSProgress *progress)))sg_uploadProgress {
+    SGNET_weakify(self)
+    return ^(void (^sg_uploadProgress)(NSProgress *progress)) {
+        SGNET_strongify(self)
+        self.uploadProgress = ^(NSProgress *progress) {
+            if (sg_uploadProgress) sg_uploadProgress(progress);
+        };
+        return self;
+    };
+}
+
 - (SGNetworkManager * (^)(NSString *serverAddress))sg_serverAddress {
-    SG_weakify(self)
+    SGNET_weakify(self)
     return ^(NSString *serverAddress) {
-        SG_strongify(self)
+        SGNET_strongify(self)
         self.serverAddress = serverAddress;
         return self;
     };
 }
 
 - (SGNetworkManager * (^)(NSString *interface))sg_interface {
-    SG_weakify(self)
+    SGNET_weakify(self)
     return ^(NSString *interface) {
-        SG_strongify(self)
+        SGNET_strongify(self)
         self.interface = interface;
         return self;
     };
 }
 
 - (SGNetworkManager * (^)(NSDictionary *parameters))sg_parameters {
-    SG_weakify(self)
+    SGNET_weakify(self)
     return ^(NSDictionary *parameters) {
-        SG_strongify(self)
+        SGNET_strongify(self)
         self.parameters = parameters;
         return self;
     };
 }
 
 - (SGNetworkManager *)get {
-    SG_weakify(self)
-    [self.sessionManager GET:SG_RequestLink(self.serverAddress, self.interface) parameters:self.parameters progress:^(NSProgress * _Nonnull downloadProgress) {
-        SG_strongify(self)
+    SGNET_weakify(self)
+    [self.sessionManager GET:SGNET_RequestLink(self.serverAddress, self.interface) parameters:self.parameters progress:^(NSProgress * _Nonnull downloadProgress) {
+        SGNET_strongify(self)
         if (self.downloadProgress) self.downloadProgress(downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        SG_strongify(self)
+        SGNET_strongify(self)
         if (self.success) self.success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        SG_strongify(self)
+        SGNET_strongify(self)
+        if (self.failure) self.failure(error);
+    }];
+    return self;
+}
+
+- (SGNetworkManager *)post {
+    SGNET_weakify(self)
+    [self.sessionManager POST:SGNET_RequestLink(self.serverAddress, self.interface) parameters:self.parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+        SGNET_strongify(self)
+        if (self.uploadProgress) self.uploadProgress(uploadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        SGNET_strongify(self)
+        if (self.success) self.success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        SGNET_strongify(self)
         if (self.failure) self.failure(error);
     }];
     return self;

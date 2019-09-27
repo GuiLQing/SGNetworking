@@ -66,19 +66,8 @@
 		9D7064BDA5D62650E4F70F6F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ACD7AF499A769F92C1821D50 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C00B7EADD39B5AD548DC6CED /* Pods-SGNetworking_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGNetworking_Example.debug.xcconfig"; path = "Target Support Files/Pods-SGNetworking_Example/Pods-SGNetworking_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D21B03B92334EDAA00AD46CE /* SGMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGMacros.h; sourceTree = "<group>"; };
-		D21B03BB2334EDFE00AD46CE /* SGDispatchMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGDispatchMacros.h; sourceTree = "<group>"; };
-		D21B03BC2334EF1D00AD46CE /* SGColorMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGColorMacros.h; sourceTree = "<group>"; };
-		D21B03BD2334EF5100AD46CE /* SGPathMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGPathMacros.h; sourceTree = "<group>"; };
-		D21B03BE2334EFD800AD46CE /* SGBlockMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGBlockMacros.h; sourceTree = "<group>"; };
-		D21B03BF2334F02300AD46CE /* SGImageMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGImageMacros.h; sourceTree = "<group>"; };
-		D21B03C02334F2EC00AD46CE /* SGFontMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGFontMacros.h; sourceTree = "<group>"; };
-		D21B03C12334F34D00AD46CE /* SGOtherMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGOtherMacros.h; sourceTree = "<group>"; };
-		D21B03C22334F3B000AD46CE /* SGSizeMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSizeMacros.h; sourceTree = "<group>"; };
-		D21B03C32334F40300AD46CE /* SGSystemMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGSystemMacros.h; sourceTree = "<group>"; };
 		D2B28E6523321244008515D7 /* SGNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGNetworkManager.m; sourceTree = "<group>"; };
 		D2B28E6623321244008515D7 /* SGNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGNetworkManager.h; sourceTree = "<group>"; };
-		D2DDF6062338C959008CBFE6 /* SGUtilsMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGUtilsMacros.h; sourceTree = "<group>"; };
 		D84E5243F27156AB4B597C15 /* Pods-SGNetworking_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGNetworking_Example.release.xcconfig"; path = "Target Support Files/Pods-SGNetworking_Example/Pods-SGNetworking_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EDE49EC91950868C8217E6F1 /* Pods-SGNetworking_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGNetworking_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SGNetworking_Tests/Pods-SGNetworking_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,7 +138,6 @@
 				6003F59C195388D20070C39A /* SGAppDelegate.h */,
 				6003F59D195388D20070C39A /* SGAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				D21B03BA2334EDC000AD46CE /* SGMacros */,
 				6003F5A5195388D20070C39A /* SGViewController.h */,
 				6003F5A6195388D20070C39A /* SGViewController.m */,
 				D2B28E6623321244008515D7 /* SGNetworkManager.h */,
@@ -200,24 +188,6 @@
 				ACD7AF499A769F92C1821D50 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
-		D21B03BA2334EDC000AD46CE /* SGMacros */ = {
-			isa = PBXGroup;
-			children = (
-				D21B03B92334EDAA00AD46CE /* SGMacros.h */,
-				D21B03C32334F40300AD46CE /* SGSystemMacros.h */,
-				D21B03C22334F3B000AD46CE /* SGSizeMacros.h */,
-				D21B03BC2334EF1D00AD46CE /* SGColorMacros.h */,
-				D21B03C02334F2EC00AD46CE /* SGFontMacros.h */,
-				D21B03BD2334EF5100AD46CE /* SGPathMacros.h */,
-				D21B03BE2334EFD800AD46CE /* SGBlockMacros.h */,
-				D21B03BF2334F02300AD46CE /* SGImageMacros.h */,
-				D21B03BB2334EDFE00AD46CE /* SGDispatchMacros.h */,
-				D21B03C12334F34D00AD46CE /* SGOtherMacros.h */,
-				D2DDF6062338C959008CBFE6 /* SGUtilsMacros.h */,
-			);
-			name = SGMacros;
 			sourceTree = "<group>";
 		};
 		FBD2EA5043C39D052D72EA8D /* Pods */ = {
